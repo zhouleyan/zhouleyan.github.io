@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <subtitle>嘻嘻哒</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zhouleyan.github.io/"/>
+  <updated>2018-11-27T05:44:03.592Z</updated>
+  <id>https://zhouleyan.github.io/</id>
+  
+  <author>
+    <name>Zhou Leyan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go自定义error断言</title>
+    <link href="https://zhouleyan.github.io/2018/11/02/go-error-assert/"/>
+    <id>https://zhouleyan.github.io/2018/11/02/go-error-assert/</id>
+    <published>2018-11-02T01:29:19.000Z</published>
+    <updated>2018-11-27T05:44:03.592Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Go自定义error断言&quot;&gt;&lt;a href=&quot;#Go自定义error断言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Go" scheme="https://zhouleyan.github.io/categories/Go/"/>
+    
+    
+      <category term="Go" scheme="https://zhouleyan.github.io/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go的单例模式</title>
+    <link href="https://zhouleyan.github.io/2018/10/25/go-singleton/"/>
+    <id>https://zhouleyan.github.io/2018/10/25/go-singleton/</id>
+    <published>2018-10-25T01:29:19.000Z</published>
+    <updated>2018-11-13T11:45:07.389Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Go的单例模式&quot;&gt;&lt;a href=&quot;#Go的单例模式&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Go" scheme="https://zhouleyan.github.io/categories/Go/"/>
+    
+    
+      <category term="Go" scheme="https://zhouleyan.github.io/tags/Go/"/>
+    
+  </entry>
+  
+</feed>

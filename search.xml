@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Go自定义error断言]]></title>
+    <url>%2F2018%2F11%2F02%2Fgo-error-assert%2F</url>
+    <content type="text"><![CDATA[Go自定义error断言error是一个interface 123type error interface &#123; Error() string&#125; 自定义error 123456789101112// InvalidValidationError ...type InvalidValidationError struct &#123; Type reflect.Type&#125;// Error returns InvalidValidationError messagefunc (e *InvalidValidationError) Error() string &#123; if e.Type == nil &#123; return "validator: (nil)" &#125; return "validator: (nil " + e.Type.String() + ")"&#125; 自定义error处理 123if _, ok := err.(*InvalidValidationError); ok &#123; // ... handle error&#125;]]></content>
+      <categories>
+        <category>Go</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go的单例模式]]></title>
+    <url>%2F2018%2F10%2F25%2Fgo-singleton%2F</url>
+    <content type="text"><![CDATA[Go的单例模式 保证一个struct只有一个实例，并提供一个全局访问点 12345678910111213141516171819202122package managerimport ( "sync" "fmt")var m *Managervar once sync.Oncetype Manager struct&#123;&#125;func SharedManager() *Manager &#123; once.Do(func() &#123; m = &amp;Manager&#123;&#125; &#125;) return m&#125;func (p *Manager) Manage() &#123; fmt.Println("manage...")&#125;]]></content>
+      <categories>
+        <category>Go</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+</search>
