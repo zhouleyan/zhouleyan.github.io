@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Lyzhou的博客</title>
   
-  <subtitle>嘻嘻哒</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouleyan.github.io/"/>
-  <updated>2018-11-27T05:44:03.592Z</updated>
+  <updated>2018-12-12T09:23:04.936Z</updated>
   <id>https://zhouleyan.github.io/</id>
   
   <author>
-    <name>Zhou Leyan</name>
+    <name>Lyzhou</name>
     
   </author>
   
@@ -21,17 +21,12 @@
     <link href="https://zhouleyan.github.io/2018/11/02/go-error-assert/"/>
     <id>https://zhouleyan.github.io/2018/11/02/go-error-assert/</id>
     <published>2018-11-02T01:29:19.000Z</published>
-    <updated>2018-11-27T05:44:03.592Z</updated>
+    <updated>2018-12-12T09:23:04.936Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Go自定义error断言&quot;&gt;&lt;a href=&quot;#Go自定义error断言&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;Go自定义error断言&quot;&gt;&lt;a href=&quot;#Go自定义error断言&quot; class=&quot;headerlink&quot; title=&quot;Go自定义error断言&quot;&gt;&lt;/a&gt;Go自定义error断言&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;error&lt;/strong&gt;是一个&lt;strong&gt;interface&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; error &lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Error() &lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -47,17 +42,13 @@
     <link href="https://zhouleyan.github.io/2018/10/25/go-singleton/"/>
     <id>https://zhouleyan.github.io/2018/10/25/go-singleton/</id>
     <published>2018-10-25T01:29:19.000Z</published>
-    <updated>2018-11-13T11:45:07.389Z</updated>
+    <updated>2018-12-12T09:23:21.063Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Go的单例模式&quot;&gt;&lt;a href=&quot;#Go的单例模式&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;Go的单例模式&quot;&gt;&lt;a href=&quot;#Go的单例模式&quot; class=&quot;headerlink&quot; title=&quot;Go的单例模式&quot;&gt;&lt;/a&gt;Go的单例模式&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;保证一个struct只有一个实例，并提供一个全局访问点&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
