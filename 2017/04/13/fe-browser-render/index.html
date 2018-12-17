@@ -155,16 +155,22 @@
 
 
 
-  <meta name="description" content="专业实现各种技术Hello, Wolrd！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lyzhou的博客">
-<meta property="og:url" content="https://zhouleyan.github.io/archives/index.html">
+  <meta name="description" content="浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）">
+<meta name="keywords" content="浏览器,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器渲染流程">
+<meta property="og:url" content="https://zhouleyan.github.io/2017/04/13/fe-browser-render/index.html">
 <meta property="og:site_name" content="Lyzhou的博客">
-<meta property="og:description" content="专业实现各种技术Hello, Wolrd！">
+<meta property="og:description" content="浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zhouleyan.github.io/images/posts_img/dns-query.png">
+<meta property="og:image" content="https://zhouleyan.github.io/images/posts_img/webkit.png">
+<meta property="og:image" content="https://zhouleyan.github.io/images/posts_img/gecko.png">
+<meta property="og:updated_time" content="2018-12-17T06:26:32.534Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lyzhou的博客">
-<meta name="twitter:description" content="专业实现各种技术Hello, Wolrd！">
+<meta name="twitter:title" content="浏览器渲染流程">
+<meta name="twitter:description" content="浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）">
+<meta name="twitter:image" content="https://zhouleyan.github.io/images/posts_img/dns-query.png">
 
 
 
@@ -173,7 +179,7 @@
 
 
 
-  <link rel="canonical" href="https://zhouleyan.github.io/archives/">
+  <link rel="canonical" href="https://zhouleyan.github.io/2017/04/13/fe-browser-render/">
 
 
 
@@ -183,7 +189,7 @@
   };
 </script>
 
-  <title>归档 | Lyzhou的博客</title>
+  <title>浏览器渲染流程 | Lyzhou的博客</title>
   
 
 
@@ -231,7 +237,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -336,7 +342,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -416,179 +422,310 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouleyan.github.io/2017/04/13/fe-browser-render/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyzhou">
+      <meta itemprop="description" content="专业实现各种技术Hello, Wolrd！">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyzhou的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/11/02/go-error-assert/" itemprop="url">
+        
+          <h1 class="post-title" itemprop="name headline">浏览器渲染流程
+
               
-                <span itemprop="name">Go自定义error断言</span>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-02T09:29:19+08:00" content="2018-11-02">
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/go-singleton/" itemprop="url">
+                <span class="post-meta-item-text">发表于</span>
               
-                <span itemprop="name">Go的单例模式</span>
+
               
-            </a>
-        
-      </h2>
+                
+              
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-25T09:29:19+08:00" content="2018-10-25">
-          10-25
-        </time>
-      </div>
+              <time title="创建时间：2017-04-13 09:29:19" itemprop="dateCreated datePublished" datetime="2017-04-13T09:29:19+08:00">2017-04-13</time>
+            
 
-    </header>
-  </article>
+            
+          </span>
 
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/13/fe-browser-render/" itemprop="url">
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">浏览器渲染流程</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/浏览器/" itemprop="url" rel="index"><span itemprop="name">浏览器</span></a></span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-04-13T09:29:19+08:00" content="2017-04-13">
-          04-13
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/13/fe-browser-render/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/04/13/fe-browser-render/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
 
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">655</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h2 id="浏览器输入URL至页面最后呈现的过程"><a href="#浏览器输入URL至页面最后呈现的过程" class="headerlink" title="浏览器输入URL至页面最后呈现的过程"></a>浏览器输入URL至页面最后呈现的过程</h2><ol>
+<li>用户输入URL地址</li>
+<li>浏览器解析出主机名</li>
+<li>通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）<a id="more"></a>
+<img src="/images/posts_img/dns-query.png" alt="dns-query"></li>
+<li>传输层：将IP地址端口号解析出来，并与目标Web服务器建立TCP连接（3次握手）</li>
+<li>应用层：发送http请求，设置好<strong>请求行</strong>（方法、路径、协议版本）、请求头、空行、请求主体发送请求报文，服务器接收请求后，根据处理结果将响应报文（响应行、响应头、空行、响应主体）返回相关资源给浏览器</li>
+<li>资源请求完毕，关闭连接（4次挥手），浏览器开始渲染页面</li>
+</ol>
+<h3 id="关键渲染路径"><a href="#关键渲染路径" class="headerlink" title="关键渲染路径"></a>关键渲染路径</h3><p>关键渲染路径是页面渲染最重要的概念。</p>
+<p>关键渲染路径（Critical Rendering Path）是指与当前用户操作有关的内容，具体就是浏览器收到服务器返回的HTML、CSS和JavaScript等资源并对其进行解析和转变成像素的渲染过程被称为关键渲染路径。</p>
+<h2 id="浏览器渲染流程"><a href="#浏览器渲染流程" class="headerlink" title="浏览器渲染流程"></a>浏览器渲染流程</h2><h3 id="渲染5步流程"><a href="#渲染5步流程" class="headerlink" title="渲染5步流程"></a>渲染5步流程</h3><ol>
+<li>浏览器将HTML文档解析成DOM(Document Obeject Model)树</li>
+<li>处理CSS标记，构成层叠样式表模型CSSOM(CSS Object Model)</li>
+<li>将DOM与CSSOM合并为渲染树（Render Tree），代表一系列将被渲染的对象</li>
+<li>Layout根据Render Tree计算每个节点的信息</li>
+<li>Painting根据计算好的数据绘制整个页面</li>
+</ol>
+<h3 id="渲染流程图"><a href="#渲染流程图" class="headerlink" title="渲染流程图"></a>渲染流程图</h3><ol>
+<li>WebKit<br><img src="/images/posts_img/webkit.png" alt="webkit"></li>
+<li>Mozilla’s Gecko<br><img src="/images/posts_img/gecko.png" alt="gecko"></li>
+</ol>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wxpay.jpg" alt="Lyzhou 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Lyzhou 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Lyzhou</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://zhouleyan.github.io/2017/04/13/fe-browser-render/" title="浏览器渲染流程">https://zhouleyan.github.io/2017/04/13/fe-browser-render/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/浏览器/" rel="tag"># 浏览器</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/25/go-singleton/" rel="prev" title="Go的单例模式">
+                Go的单例模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -609,8 +746,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -734,6 +880,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器输入URL至页面最后呈现的过程"><span class="nav-number">1.</span> <span class="nav-text">浏览器输入URL至页面最后呈现的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键渲染路径"><span class="nav-number">1.1.</span> <span class="nav-text">关键渲染路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染流程"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染5步流程"><span class="nav-number">2.1.</span> <span class="nav-text">渲染5步流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染流程图"><span class="nav-number">2.2.</span> <span class="nav-text">渲染流程图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -897,6 +1059,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 

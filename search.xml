@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Go自定义error断言]]></title>
     <url>%2F2018%2F11%2F02%2Fgo-error-assert%2F</url>
-    <content type="text"><![CDATA[Go自定义error断言error是一个interface 123type error interface &#123; Error() string&#125; 自定义error 123456789101112// InvalidValidationError ...type InvalidValidationError struct &#123; Type reflect.Type&#125;// Error returns InvalidValidationError messagefunc (e *InvalidValidationError) Error() string &#123; if e.Type == nil &#123; return "validator: (nil)" &#125; return "validator: (nil " + e.Type.String() + ")"&#125; 自定义error处理 123if _, ok := err.(*InvalidValidationError); ok &#123; // ... handle error&#125;]]></content>
+    <content type="text"><![CDATA[error是一个interface 123type error interface &#123; Error() string&#125; 自定义error 123456789101112// InvalidValidationError ...type InvalidValidationError struct &#123; Type reflect.Type&#125;// Error returns InvalidValidationError messagefunc (e *InvalidValidationError) Error() string &#123; if e.Type == nil &#123; return "validator: (nil)" &#125; return "validator: (nil " + e.Type.String() + ")"&#125; 自定义error处理 123if _, ok := err.(*InvalidValidationError); ok &#123; // ... handle error&#125;]]></content>
       <categories>
         <category>Go</category>
       </categories>
@@ -14,12 +14,24 @@
   <entry>
     <title><![CDATA[Go的单例模式]]></title>
     <url>%2F2018%2F10%2F25%2Fgo-singleton%2F</url>
-    <content type="text"><![CDATA[Go的单例模式 保证一个struct只有一个实例，并提供一个全局访问点 12345678910111213141516171819202122package managerimport ( "sync" "fmt")var m *Managervar once sync.Oncetype Manager struct&#123;&#125;func SharedManager() *Manager &#123; once.Do(func() &#123; m = &amp;Manager&#123;&#125; &#125;) return m&#125;func (p *Manager) Manage() &#123; fmt.Println("manage...")&#125;]]></content>
+    <content type="text"><![CDATA[保证一个struct只有一个实例，并提供一个全局访问点 12345678910111213141516171819202122package managerimport ( "sync" "fmt")var m *Managervar once sync.Oncetype Manager struct&#123;&#125;func SharedManager() *Manager &#123; once.Do(func() &#123; m = &amp;Manager&#123;&#125; &#125;) return m&#125;func (p *Manager) Manage() &#123; fmt.Println("manage...")&#125;]]></content>
       <categories>
         <category>Go</category>
       </categories>
       <tags>
         <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器渲染流程]]></title>
+    <url>%2F2017%2F04%2F13%2Ffe-browser-render%2F</url>
+    <content type="text"><![CDATA[浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存） 传输层：将IP地址端口号解析出来，并与目标Web服务器建立TCP连接（3次握手） 应用层：发送http请求，设置好请求行（方法、路径、协议版本）、请求头、空行、请求主体发送请求报文，服务器接收请求后，根据处理结果将响应报文（响应行、响应头、空行、响应主体）返回相关资源给浏览器 资源请求完毕，关闭连接（4次挥手），浏览器开始渲染页面 关键渲染路径关键渲染路径是页面渲染最重要的概念。 关键渲染路径（Critical Rendering Path）是指与当前用户操作有关的内容，具体就是浏览器收到服务器返回的HTML、CSS和JavaScript等资源并对其进行解析和转变成像素的渲染过程被称为关键渲染路径。 浏览器渲染流程渲染5步流程 浏览器将HTML文档解析成DOM(Document Obeject Model)树 处理CSS标记，构成层叠样式表模型CSSOM(CSS Object Model) 将DOM与CSSOM合并为渲染树（Render Tree），代表一系列将被渲染的对象 Layout根据Render Tree计算每个节点的信息 Painting根据计算好的数据绘制整个页面 渲染流程图 WebKit Mozilla’s Gecko]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>浏览器</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
 </search>
