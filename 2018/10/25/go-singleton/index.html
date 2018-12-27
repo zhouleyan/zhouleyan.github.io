@@ -155,18 +155,18 @@
 
 
 
-  <meta name="description" content="保证一个struct只有一个实例，并提供一个全局访问点">
+  <meta name="description" content=" 保证一个 struct 只有一个实例，并提供一个全局访问点">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go的单例模式">
 <meta property="og:url" content="https://zhouleyan.github.io/2018/10/25/go-singleton/index.html">
 <meta property="og:site_name" content="Lyzhou的博客">
-<meta property="og:description" content="保证一个struct只有一个实例，并提供一个全局访问点">
+<meta property="og:description" content=" 保证一个 struct 只有一个实例，并提供一个全局访问点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-17T02:40:01.063Z">
+<meta property="og:updated_time" content="2018-12-18T07:09:07.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go的单例模式">
-<meta name="twitter:description" content="保证一个struct只有一个实例，并提供一个全局访问点">
+<meta name="twitter:description" content=" 保证一个 struct 只有一个实例，并提供一个全局访问点">
 
 
 
@@ -539,7 +539,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">368</span>
+                <span title="本文字数">371</span>
               
 
               
@@ -574,7 +574,7 @@
 
       
         <blockquote>
-<p>保证一个struct只有一个实例，并提供一个全局访问点</p>
+<p> 保证一个 struct 只有一个实例，并提供一个全局访问点</p>
 </blockquote>
 <a id="more"></a>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> manager</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"sync"</span></span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m *Manager</span><br><span class="line"><span class="keyword">var</span> once sync.Once</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Manager <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SharedManager</span><span class="params">()</span> *<span class="title">Manager</span></span> &#123;</span><br><span class="line">    once.Do(<span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        m = &amp;Manager&#123;&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Manager)</span> <span class="title">Manage</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"manage..."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -666,8 +666,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/13/fe-browser-render/" rel="next" title="浏览器渲染流程">
-                <i class="fa fa-chevron-left"></i> 浏览器渲染流程
+              <a href="/2017/06/12/fe-call-apply-bind-impl/" rel="next" title="call、apply、bind模拟实现">
+                <i class="fa fa-chevron-left"></i> call、apply、bind模拟实现
               </a>
             
           </div>
@@ -745,7 +745,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -757,6 +757,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -785,7 +787,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -887,7 +891,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
   
 
   
@@ -898,7 +902,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">3 分钟</span>
   
 </div>
 

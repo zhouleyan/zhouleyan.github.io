@@ -155,18 +155,18 @@
 
 
 
-  <meta name="description" content="error是一个interface 123type error interface &amp;#123;    Error() string&amp;#125;">
-<meta name="keywords" content="Go">
+  <meta name="description" content="call 方法实现123456789101112Function.prototype.call = function(context, ...args) &amp;#123;  var context;  try &amp;#123;    context = context || window;  &amp;#125; catch (e) &amp;#123;    context = global;  &amp;#125;  con">
+<meta name="keywords" content="前端,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go自定义error断言">
-<meta property="og:url" content="https://zhouleyan.github.io/2018/11/02/go-error-assert/index.html">
+<meta property="og:title" content="call、apply、bind模拟实现">
+<meta property="og:url" content="https://zhouleyan.github.io/2017/06/12/fe-call-apply-bind-impl/index.html">
 <meta property="og:site_name" content="Lyzhou的博客">
-<meta property="og:description" content="error是一个interface 123type error interface &amp;#123;    Error() string&amp;#125;">
+<meta property="og:description" content="call 方法实现123456789101112Function.prototype.call = function(context, ...args) &amp;#123;  var context;  try &amp;#123;    context = context || window;  &amp;#125; catch (e) &amp;#123;    context = global;  &amp;#125;  con">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-18T07:07:55.948Z">
+<meta property="og:updated_time" content="2018-12-18T08:13:20.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go自定义error断言">
-<meta name="twitter:description" content="error是一个interface 123type error interface &amp;#123;    Error() string&amp;#125;">
+<meta name="twitter:title" content="call、apply、bind模拟实现">
+<meta name="twitter:description" content="call 方法实现123456789101112Function.prototype.call = function(context, ...args) &amp;#123;  var context;  try &amp;#123;    context = context || window;  &amp;#125; catch (e) &amp;#123;    context = global;  &amp;#125;  con">
 
 
 
@@ -175,7 +175,7 @@
 
 
 
-  <link rel="canonical" href="https://zhouleyan.github.io/2018/11/02/go-error-assert/">
+  <link rel="canonical" href="https://zhouleyan.github.io/2017/06/12/fe-call-apply-bind-impl/">
 
 
 
@@ -185,7 +185,7 @@
   };
 </script>
 
-  <title>Go自定义error断言 | Lyzhou的博客</title>
+  <title>call、apply、bind模拟实现 | Lyzhou的博客</title>
   
 
 
@@ -440,7 +440,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouleyan.github.io/2018/11/02/go-error-assert/">
+    <link itemprop="mainEntityOfPage" href="https://zhouleyan.github.io/2017/06/12/fe-call-apply-bind-impl/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lyzhou">
@@ -457,7 +457,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go自定义error断言
+          <h1 class="post-title" itemprop="name headline">call、apply、bind模拟实现
 
               
             
@@ -483,7 +483,7 @@
                 
               
 
-              <time title="创建时间：2018-11-02 09:29:19" itemprop="dateCreated datePublished" datetime="2018-11-02T09:29:19+08:00">2018-11-02</time>
+              <time title="创建时间：2017-06-12 08:13:19" itemprop="dateCreated datePublished" datetime="2017-06-12T08:13:19+08:00">2017-06-12</time>
             
 
             
@@ -501,7 +501,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Go/" itemprop="url" rel="index"><span itemprop="name">Go</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -516,8 +516,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/02/go-error-assert/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/02/go-error-assert/" itemprop="commentCount"></span>
+                <a href="/2017/06/12/fe-call-apply-bind-impl/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/06/12/fe-call-apply-bind-impl/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -539,7 +539,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">522</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -573,13 +573,10 @@
       
 
       
-        <p><strong>error</strong>是一个<strong>interface</strong></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="call-方法实现"><a href="#call-方法实现" class="headerlink" title="call 方法实现"></a>call 方法实现</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> context;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    context = context || <span class="built_in">window</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    context = global;</span><br><span class="line">  &#125;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">const</span> result = context.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>自定义<strong>error</strong></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// InvalidValidationError ...</span></span><br><span class="line"><span class="keyword">type</span> InvalidValidationError <span class="keyword">struct</span> &#123;</span><br><span class="line">    Type reflect.Type</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Error returns InvalidValidationError message</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *InvalidValidationError)</span> <span class="title">Error</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> e.Type == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"validator: (nil)"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"validator: (nil "</span> + e.Type.String() + <span class="string">")"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>自定义<strong>error</strong>处理</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> _, ok := err.(*InvalidValidationError); ok &#123;</span><br><span class="line">    <span class="comment">// ... handle error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="apply-方法实现"><a href="#apply-方法实现" class="headerlink" title="apply 方法实现"></a>apply 方法实现</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span>(<span class="params">context, args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> context;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    context = context || <span class="built_in">window</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    context = global;</span><br><span class="line">  &#125;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">const</span> result = context.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="bind-方法实现"><a href="#bind-方法实现" class="headerlink" title="bind 方法实现"></a>bind 方法实现</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype.bind !== <span class="string">'function'</span>) &#123;</span><br><span class="line">  <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...rest</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'invalid invoked!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> F) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> self(...rest, ...args);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> self.apply(context, rest.concat(args));</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -642,7 +639,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://zhouleyan.github.io/2018/11/02/go-error-assert/" title="Go自定义error断言">https://zhouleyan.github.io/2018/11/02/go-error-assert/</a>
+    <a href="https://zhouleyan.github.io/2017/06/12/fe-call-apply-bind-impl/" title="call、apply、bind模拟实现">https://zhouleyan.github.io/2017/06/12/fe-call-apply-bind-impl/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -655,7 +652,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Go/" rel="tag"># Go</a>
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -668,8 +667,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/25/go-singleton/" rel="next" title="Go的单例模式">
-                <i class="fa fa-chevron-left"></i> Go的单例模式
+              <a href="/2017/04/13/fe-browser-render/" rel="next" title="浏览器渲染流程">
+                <i class="fa fa-chevron-left"></i> 浏览器渲染流程
               </a>
             
           </div>
@@ -677,6 +676,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/25/go-singleton/" rel="prev" title="Go的单例模式">
+                Go的单例模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -725,8 +728,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -854,6 +866,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#call-方法实现"><span class="nav-number">1.</span> <span class="nav-text">call 方法实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apply-方法实现"><span class="nav-number">2.</span> <span class="nav-text">apply 方法实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bind-方法实现"><span class="nav-number">3.</span> <span class="nav-text">bind 方法实现</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

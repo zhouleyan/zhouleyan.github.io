@@ -155,21 +155,21 @@
 
 
 
-  <meta name="description" content="浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）">
+  <meta name="description" content="浏览器输入 URL 至页面最后呈现的过程 用户输入 URL 地址 浏览器解析出主机名  通过查询 DNS 转换为服务器 IP 地址（ 按浏览器、本地操作系统、本地 host 文件、路由器、ISP（服务提供商）DNS 缓存、顶级/根 DNS 服务器  逐级查询 DNS 缓存） 传输层：将 IP 地址端口号解析出来，并与目标 Web 服务器建立 TCP 连接（3 次握手） 应用层：发送 htt">
 <meta name="keywords" content="浏览器,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器渲染流程">
 <meta property="og:url" content="https://zhouleyan.github.io/2017/04/13/fe-browser-render/index.html">
 <meta property="og:site_name" content="Lyzhou的博客">
-<meta property="og:description" content="浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）">
+<meta property="og:description" content="浏览器输入 URL 至页面最后呈现的过程 用户输入 URL 地址 浏览器解析出主机名  通过查询 DNS 转换为服务器 IP 地址（ 按浏览器、本地操作系统、本地 host 文件、路由器、ISP（服务提供商）DNS 缓存、顶级/根 DNS 服务器  逐级查询 DNS 缓存） 传输层：将 IP 地址端口号解析出来，并与目标 Web 服务器建立 TCP 连接（3 次握手） 应用层：发送 htt">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://zhouleyan.github.io/images/posts_img/dns-query.png">
 <meta property="og:image" content="https://zhouleyan.github.io/images/posts_img/webkit.png">
 <meta property="og:image" content="https://zhouleyan.github.io/images/posts_img/gecko.png">
-<meta property="og:updated_time" content="2018-12-17T06:26:32.534Z">
+<meta property="og:updated_time" content="2018-12-27T02:07:48.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器渲染流程">
-<meta name="twitter:description" content="浏览器输入URL至页面最后呈现的过程 用户输入URL地址 浏览器解析出主机名 通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）">
+<meta name="twitter:description" content="浏览器输入 URL 至页面最后呈现的过程 用户输入 URL 地址 浏览器解析出主机名  通过查询 DNS 转换为服务器 IP 地址（ 按浏览器、本地操作系统、本地 host 文件、路由器、ISP（服务提供商）DNS 缓存、顶级/根 DNS 服务器  逐级查询 DNS 缓存） 传输层：将 IP 地址端口号解析出来，并与目标 Web 服务器建立 TCP 连接（3 次握手） 应用层：发送 htt">
 <meta name="twitter:image" content="https://zhouleyan.github.io/images/posts_img/dns-query.png">
 
 
@@ -505,7 +505,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/浏览器/" itemprop="url" rel="index"><span itemprop="name">浏览器</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -543,7 +543,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">655</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -577,28 +577,40 @@
       
 
       
-        <h2 id="浏览器输入URL至页面最后呈现的过程"><a href="#浏览器输入URL至页面最后呈现的过程" class="headerlink" title="浏览器输入URL至页面最后呈现的过程"></a>浏览器输入URL至页面最后呈现的过程</h2><ol>
-<li>用户输入URL地址</li>
+        <h1 id="浏览器输入-URL-至页面最后呈现的过程"><a href="#浏览器输入-URL-至页面最后呈现的过程" class="headerlink" title="浏览器输入 URL 至页面最后呈现的过程"></a>浏览器输入 URL 至页面最后呈现的过程</h1><ol>
+<li>用户输入 URL 地址</li>
 <li>浏览器解析出主机名</li>
-<li>通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）<a id="more"></a>
-<img src="/images/posts_img/dns-query.png" alt="dns-query"></li>
-<li>传输层：将IP地址端口号解析出来，并与目标Web服务器建立TCP连接（3次握手）</li>
-<li>应用层：发送http请求，设置好<strong>请求行</strong>（方法、路径、协议版本）、请求头、空行、请求主体发送请求报文，服务器接收请求后，根据处理结果将响应报文（响应行、响应头、空行、响应主体）返回相关资源给浏览器</li>
-<li>资源请求完毕，关闭连接（4次挥手），浏览器开始渲染页面</li>
+<li> 通过查询 DNS 转换为服务器 IP 地址（ 按浏览器、本地操作系统、本地 host 文件、路由器、ISP（服务提供商）DNS 缓存、顶级/根 DNS 服务器  逐级查询 DNS 缓存）<br><img src="/images/posts_img/dns-query.png" alt="dns-query"></li>
+<li>传输层：将 IP 地址端口号解析出来，并与目标 Web 服务器建立 TCP 连接（3 次握手）</li>
+<li>应用层：发送 http 请求，设置好<strong>请求行</strong>（方法、路径、协议版本）、请求头、空行、请求主体发送请求报文，服务器接收请求后，根据处理结果将响应报文（ 响应行、 响应头、 空行、响应主体）返回相关资源给浏览器</li>
+<li>资源请求完毕，关闭连接（4 次挥手），浏览器开始渲染页面</li>
 </ol>
-<h3 id="关键渲染路径"><a href="#关键渲染路径" class="headerlink" title="关键渲染路径"></a>关键渲染路径</h3><p>关键渲染路径是页面渲染最重要的概念。</p>
-<p>关键渲染路径（Critical Rendering Path）是指与当前用户操作有关的内容，具体就是浏览器收到服务器返回的HTML、CSS和JavaScript等资源并对其进行解析和转变成像素的渲染过程被称为关键渲染路径。</p>
-<h2 id="浏览器渲染流程"><a href="#浏览器渲染流程" class="headerlink" title="浏览器渲染流程"></a>浏览器渲染流程</h2><h3 id="渲染5步流程"><a href="#渲染5步流程" class="headerlink" title="渲染5步流程"></a>渲染5步流程</h3><ol>
-<li>浏览器将HTML文档解析成DOM(Document Obeject Model)树</li>
-<li>处理CSS标记，构成层叠样式表模型CSSOM(CSS Object Model)</li>
-<li>将DOM与CSSOM合并为渲染树（Render Tree），代表一系列将被渲染的对象</li>
-<li>Layout根据Render Tree计算每个节点的信息</li>
-<li>Painting根据计算好的数据绘制整个页面</li>
+<a id="more"></a>
+<h1 id="关键渲染路径"><a href="#关键渲染路径" class="headerlink" title="关键渲染路径"></a>关键渲染路径</h1><p>关键渲染路径是页面渲染最重要的概念。</p>
+<p>关键渲染路径（Critical Rendering Path）是指与当前用户操作有关的内容，具体就是浏览器收到服务器返回的 HTML、CSS 和 JavaScript 等资源并对其进行解析和转变成像素的渲染过程被称为关键渲染路径。</p>
+<h1 id="浏览器渲染流程"><a href="#浏览器渲染流程" class="headerlink" title="浏览器渲染流程"></a>浏览器渲染流程</h1><h2 id="渲染-5-步流程"><a href="#渲染-5-步流程" class="headerlink" title="渲染 5 步流程"></a>渲染 5 步流程</h2><ol>
+<li>浏览器将 HTML 文档解析成 DOM(Document Obeject Model)树</li>
+<li>处理 CSS 标记，构成层叠样式表模型 CSSOM(CSS Object Model)</li>
+<li>将 DOM 与 CSSOM 合并为渲染树（Render Tree），代表一系列将被渲染的对象</li>
+<li>Layout 根据 Render Tree 计算每个节点的信息</li>
+<li>Painting 根据计算好的数据绘制整个页面</li>
 </ol>
-<h3 id="渲染流程图"><a href="#渲染流程图" class="headerlink" title="渲染流程图"></a>渲染流程图</h3><ol>
+<h2 id="渲染流程图"><a href="#渲染流程图" class="headerlink" title="渲染流程图"></a>渲染流程图</h2><ol>
 <li>WebKit<br><img src="/images/posts_img/webkit.png" alt="webkit"></li>
 <li>Mozilla’s Gecko<br><img src="/images/posts_img/gecko.png" alt="gecko"></li>
 </ol>
+<h2 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h2><p>我们都知道 HTML 默认是流式布局的，但 CSS 和 JS 会打破这种布局，改变 DOM 的外观样式以及大小和位置。因此我们就需要知道两个概念：</p>
+<ul>
+<li>reflow（回流）：当浏览器发现某个部分发生了变化从而影响了布局，这个时候就需要倒回去重新渲染，大家称这个回退的过程叫 reflow。 常见的 reflow 是一些会影响页面布局的操作，诸如 Tab，隐藏等。reflow 会从 html 这个 root frame 开始递归往下，依次计算所有的结点几何尺寸和位置，以确认是渲染树的一部分发生变化还是整个渲染树。reflow 几乎是无法避免的，因为只要用户进行交互操作，就势必会发生页面的一部分的重新渲染，且通常我们也无法预估浏览器到底会 reflow 哪一部分的代码，因为他们会相互影响。</li>
+<li>repaint（重绘）：repaint 则是当我们改变某个元素的背景色、文字颜色、边框颜色等等不影响它周围或内部布局的属性时，屏幕的一部分要重画，但是元素的几何尺寸和位置没有发生改变。</li>
+</ul>
+<p>需要注意的是，display: none 会触发 reflow，而 visibility: hidden 属性则并不算是不可见属性，它的语义是隐藏元素，但元素仍然占据着布局空间，它会被渲染成一个空框，这在我们上面有提到过。所以 visibility: hidden 只会触发 repaint，因为没有发生位置变化。</p>
+<p>我们不能避免 reflow，但还是能通过一些操作来减少回流：</p>
+<ol>
+<li>用 transform 做形变和位移；</li>
+<li>通过绝对位移来脱离当前层叠上下文，形成新的 Render Layer。</li>
+</ol>
+<p>另外有些情况下，比如修改了元素的样式，浏览器并不会立刻 reflow 或 repaint 一次，而是会把这样的操作积攒一批，然后做一次 reflow，这又叫异步 reflow 或增量异步 reflow。但是在有些情况下，比如 resize 窗口，改变了页面默认的字体等。对于这些操作，浏览器会马上进行 reflow。</p>
 
       
     </div>
@@ -695,8 +707,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/25/go-singleton/" rel="prev" title="Go的单例模式">
-                Go的单例模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/12/fe-call-apply-bind-impl/" rel="prev" title="call、apply、bind模拟实现">
+                call、apply、bind模拟实现 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -773,7 +785,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -785,6 +797,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -813,7 +827,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -890,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器输入URL至页面最后呈现的过程"><span class="nav-number">1.</span> <span class="nav-text">浏览器输入URL至页面最后呈现的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键渲染路径"><span class="nav-number">1.1.</span> <span class="nav-text">关键渲染路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染流程"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染5步流程"><span class="nav-number">2.1.</span> <span class="nav-text">渲染5步流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染流程图"><span class="nav-number">2.2.</span> <span class="nav-text">渲染流程图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器输入-URL-至页面最后呈现的过程"><span class="nav-number">1.</span> <span class="nav-text">浏览器输入 URL 至页面最后呈现的过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键渲染路径"><span class="nav-number">2.</span> <span class="nav-text">关键渲染路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器渲染流程"><span class="nav-number">3.</span> <span class="nav-text">浏览器渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染-5-步流程"><span class="nav-number">3.1.</span> <span class="nav-text">渲染 5 步流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染流程图"><span class="nav-number">3.2.</span> <span class="nav-text">渲染流程图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回流与重绘"><span class="nav-number">3.3.</span> <span class="nav-text">回流与重绘</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -931,7 +947,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
   
 
   
@@ -942,7 +958,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">3 分钟</span>
   
 </div>
 

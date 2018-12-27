@@ -739,7 +739,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">368</span>
+                <span title="本文字数">371</span>
               
 
               
@@ -775,12 +775,212 @@
       
         
           <blockquote>
-<p>保证一个struct只有一个实例，并提供一个全局访问点</p>
+<p> 保证一个 struct 只有一个实例，并提供一个全局访问点</p>
 </blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/2018/10/25/go-singleton/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouleyan.github.io/2017/06/12/fe-call-apply-bind-impl/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyzhou">
+      <meta itemprop="description" content="专业实现各种技术Hello, Wolrd！">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyzhou的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/06/12/fe-call-apply-bind-impl/" class="post-title-link" itemprop="https://zhouleyan.github.io/index.html">call、apply、bind模拟实现</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-12 08:13:19" itemprop="dateCreated datePublished" datetime="2017-06-12T08:13:19+08:00">2017-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/12/fe-call-apply-bind-impl/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/06/12/fe-call-apply-bind-impl/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="call-方法实现"><a href="#call-方法实现" class="headerlink" title="call 方法实现"></a>call 方法实现</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> context;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    context = context || <span class="built_in">window</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    context = global;</span><br><span class="line">  &#125;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">const</span> result = context.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/06/12/fe-call-apply-bind-impl/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -903,7 +1103,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/浏览器/" itemprop="url" rel="index"><span itemprop="name">浏览器</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -941,7 +1141,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">655</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -976,10 +1176,14 @@
 
       
         
-          <h2 id="浏览器输入URL至页面最后呈现的过程"><a href="#浏览器输入URL至页面最后呈现的过程" class="headerlink" title="浏览器输入URL至页面最后呈现的过程"></a>浏览器输入URL至页面最后呈现的过程</h2><ol>
-<li>用户输入URL地址</li>
+          <h1 id="浏览器输入-URL-至页面最后呈现的过程"><a href="#浏览器输入-URL-至页面最后呈现的过程" class="headerlink" title="浏览器输入 URL 至页面最后呈现的过程"></a>浏览器输入 URL 至页面最后呈现的过程</h1><ol>
+<li>用户输入 URL 地址</li>
 <li>浏览器解析出主机名</li>
-<li>通过查询DNS转换为服务器IP地址（按浏览器、本地操作系统、本地host文件、路由器、ISP（服务提供商）DNS缓存、顶级/根DNS服务器逐级查询DNS缓存）
+<li> 通过查询 DNS 转换为服务器 IP 地址（ 按浏览器、本地操作系统、本地 host 文件、路由器、ISP（服务提供商）DNS 缓存、顶级/根 DNS 服务器  逐级查询 DNS 缓存）<br><img src="/images/posts_img/dns-query.png" alt="dns-query"></li>
+<li>传输层：将 IP 地址端口号解析出来，并与目标 Web 服务器建立 TCP 连接（3 次握手）</li>
+<li>应用层：发送 http 请求，设置好<strong>请求行</strong>（方法、路径、协议版本）、请求头、空行、请求主体发送请求报文，服务器接收请求后，根据处理结果将响应报文（ 响应行、 响应头、 空行、响应主体）返回相关资源给浏览器</li>
+<li>资源请求完毕，关闭连接（4 次挥手），浏览器开始渲染页面</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -991,7 +1195,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
 
     
 
@@ -1073,7 +1277,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1085,6 +1289,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -1113,7 +1319,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1215,7 +1423,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
   
 
   
@@ -1226,7 +1434,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">3 分钟</span>
   
 </div>
 
