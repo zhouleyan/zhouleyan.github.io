@@ -23,9 +23,21 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[inherits实现]]></title>
+    <url>%2F2017%2F08%2F23%2Ffe-inherits%2F</url>
+    <content type="text"><![CDATA[inherits实现12345678910111213141516171819202122232425262728293031if (typeof Object.create === 'function') &#123; // 1. 判断是否具备Object.create方法 // 2. 定义inherits方法 function inherits(ctor, superCtor) &#123; ctor.super = superCtor; // 3. 设置“子类”构造函数原型对象 // Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__ // 通过Object.create()方法设置“子类”构造函数原型对象的__proto__为“父类”构造函数原型 // 另外将“子类”构造函数原型对象的constructor设回为“子类”构造函数 ctor.prototype = Object.create(superCtor.prototype, &#123; constructor: &#123; value: ctor, enumerable: false, writable: true, configurable: true &#125; &#125;); &#125;&#125; else &#123; // 4. 若不支持Obeject.create()方法 function inherits(ctor, superCtor) &#123; ctor.super = superCtor; // 5. 创建一个临时空构造函数 var tempCtor = function() &#123;&#125;; // 6. 使“父类”构造函数prototype对象寄生到临时空构造函数 tempCtor.prototype = superCtor.prototype; // 7. 使“子类”构造函数prototype对象为临时构造函数实例， ctor.prototype = new tempCtor(); ctor.prototype.constructor = ctor; &#125;&#125;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[call、apply、bind模拟实现]]></title>
     <url>%2F2017%2F06%2F12%2Ffe-call-apply-bind-impl%2F</url>
-    <content type="text"><![CDATA[call 方法实现123456789101112Function.prototype.call = function(context, ...args) &#123; var context; try &#123; context = context || window; &#125; catch (e) &#123; context = global; &#125; context.fn = this; const result = context.fn(...args); delete context.fn; return result;&#125;; apply 方法实现123456789101112Function.prototype.call = function(context, args) &#123; var context; try &#123; context = context || window; &#125; catch (e) &#123; context = global; &#125; context.fn = this; const result = context.fn(...args); delete context.fn; return result;&#125;; bind 方法实现1234567891011121314if (typeof Function.prototype.bind !== 'function') &#123; Function.prototype.bind = function(context, ...rest) &#123; if (typeof this !== 'function') &#123; throw new TypeError('invalid invoked!'); &#125; let self = this; return function F(...args) &#123; if (this instanceof F) &#123; return new self(...rest, ...args); &#125; return self.apply(context, rest.concat(args)); &#125;; &#125;;&#125;]]></content>
+    <content type="text"><![CDATA[call 方法模拟实现123456789101112Function.prototype.call = function(context, ...args) &#123; var context; try &#123; context = context || window; &#125; catch (e) &#123; context = global; &#125; context.fn = this; const result = context.fn(...args); delete context.fn; return result;&#125;; apply 方法模拟实现123456789101112Function.prototype.apply = function(context, args) &#123; var context; try &#123; context = context || window; &#125; catch (e) &#123; context = global; &#125; context.fn = this; const result = context.fn(...args); delete context.fn; return result;&#125;; bind 方法模拟实现1234567891011121314if (typeof Function.prototype.bind !== 'function') &#123; Function.prototype.bind = function(context, ...rest) &#123; if (typeof this !== 'function') &#123; throw new TypeError('invalid invoked!'); &#125; let self = this; return function F(...args) &#123; if (this instanceof F) &#123; return new self(...rest, ...args); &#125; return self.apply(context, rest.concat(args)); &#125;; &#125;;&#125;]]></content>
       <categories>
         <category>前端</category>
       </categories>
